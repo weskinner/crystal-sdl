@@ -6,6 +6,9 @@ module SDL
 
     def initialize(@file_name)
       @image = LibSDL_image.load(@file_name)
+      if @image.nil?
+        raise "Image for #{@file_name} is not available!"
+      end
     end
 
     def width
