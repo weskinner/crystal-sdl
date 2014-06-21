@@ -4,10 +4,10 @@ class Life
   property :width
   property :height
 
-  def initialize(@width, @height)
+  def initialize(@width, @height, @p = 0.5)
     @grid = rows.map do |i|
       cols.map do |j|
-        (rand(2) == 0) ? true : false
+        (rand < @p) ? true : false
       end
     end
   end

@@ -5,21 +5,13 @@ module Game
     SDL.quit
   end
 
-  def self.width
-    640
-  end
-
-  def self.height
-    480
-  end
-
-  def self.poll(screen)
+  def self.poll
     SDL.poll_events do |event|
       yield SDL::Event.new(event)
     end
   end
 
-  def self.start(width = 640, height = 480)
+  def self.go(width = 640, height = 480)
     # TODO: SDL.init is just a wrapper around LibSDL.init.. so just
     # replace it with the original statement!
     SDL.init
