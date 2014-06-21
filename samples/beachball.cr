@@ -43,11 +43,11 @@ loop do
     i = 0
   end
 
-  screen.fill(SDL::Color.white)
+  screen.fill(SDL::Color.from_hex("ffffff"))
 
   beachball.draw_onto(screen, Point.new(i, 30))
 
-  i += 1
+  i += 10
 
   screen.flip
 end
