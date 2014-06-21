@@ -1,4 +1,3 @@
-
 module SDL
   class Rect
     property :rect
@@ -10,12 +9,12 @@ module SDL
       pointerof(@rect)
     end
 
-    def initialize(x : Int16, y : Int16, w : UInt16, h : UInt16)
+    def initialize(x, y, w, h)
       @rect = LibSDL::Rect.new
-      @rect.x = x
-      @rect.y = y
-      @rect.w = w
-      @rect.h = h
+      @rect.x = x.to_i16
+      @rect.y = y.to_i16
+      @rect.w = w.to_u16
+      @rect.h = h.to_u16
     end
 
     def +(other)

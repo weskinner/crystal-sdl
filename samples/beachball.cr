@@ -8,14 +8,6 @@ class Point
   end
 end
 
-width = 640
-height = 480
-
-puts SDL.version.to_s
-
-SDL.init
-SDL.show_cursor
-
 beachball_file = File.dirname(__FILE__) + "/beach_ball.png"
 
 beachball = SDL::Image.new(beachball_file)
@@ -26,11 +18,9 @@ if beachball.nil?
   puts SDL.error
 end
 
-puts "Creating main surface"
-screen = SDL.set_video_mode width, height, 32, LibSDL::DOUBLEBUF | LibSDL::HWSURFACE | LibSDL::ASYNCBLIT
-
 puts "Starting loop"
 i = 0
+
 loop do
   SDL.poll_events do |event|
     if event.type == LibSDL::QUIT || event.type == LibSDL::KEYDOWN
