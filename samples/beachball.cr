@@ -1,6 +1,4 @@
-# require "sdl"
-
-require "lib_sdl"
+require "../lib_sdl"
 
 class Point
   property :x
