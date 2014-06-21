@@ -7,6 +7,8 @@ Better Crystal bindings for SDL.
 
 # Samples:
 
+* test - Recommended minimum for working with SDL in Crystal.
+
 * beachball - PyGame inspired sprite demo for a beachball image bouncing against the edges of the window.
 
 * tetris - PyGame inspired tetris clone.

@@ -142,7 +142,6 @@ end
 
 
 lib LibSDL_image("SDL_image")
-  fun get_error = IMG_GetError() : UInt8*
   fun load = IMG_Load(file : UInt8*) : LibSDL::Surface*
 end
 
@@ -154,10 +153,6 @@ module SDL
   end
 
   class Image
-    def self.error
-      String.new LibSDL_image.get_error
-    end
-
     property :image
     property :file_name
 

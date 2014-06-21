@@ -1,4 +1,4 @@
-require "../lib_sdl"
+require "../lib/sdl"
 
 class Point
   property :x
@@ -33,7 +33,7 @@ puts beachball.to_s
 if beachball.nil?
   puts "Couldn't load beachball!"
   puts SDL.error
-  # s = SDL::Image.error
+  s = SDL::Image.error
 end
 
 puts "Creating main surface"
