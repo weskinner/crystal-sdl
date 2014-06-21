@@ -44,7 +44,7 @@ loop do
   beachball.draw_onto(screen, Point.new(30, 30))
   # Draw images!
 
-  # screen.flip
+  screen.flip
 
   SDL.poll_events do |event|
     if event.type == LibSDL::QUIT || event.type == LibSDL::KEYDOWN

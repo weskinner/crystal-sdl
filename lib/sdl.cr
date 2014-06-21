@@ -120,11 +120,9 @@ lib LibSDL("SDL")
   # My Stuff! #
   #############
   fun blit_surface = SDL_UpperBlit(src : Surface*, srcrect : Rect*, dst : Surface*, dstrect : Rect*) : Int32
-
   fun create_rgb_surface = SDL_CreateRGBSurface(flags : UInt32, width : Int32, height : Int32, depth : Int32, rmask : UInt32, gmask : UInt32, bmask : UInt32, amask : UInt32) : Surface*
   fun version      = SDL_Linked_Version() : Version*
 end
-
 
 lib SDLMain("SDLMain")
 end
@@ -151,43 +149,9 @@ module SDL
   def self.version
     Version.new(LibSDL.version)
   end
-
-  class Image
-    property :image
-    property :file_name
-
-    def initialize(@file_name)
-      @image = LibSDL_image.load(@file_name)
-    end
-
-    def width
-      @image.value.w
-    end
-
-    def height
-      @image.value.h
-    end
-
-    def to_s
-      "Surface: file_name=#{@file_name}, width=#{width}, height=#{height}"
-    end
-
-    def draw_onto(surface : SDL::Surface, point : Point)
-      image = Surface.new(@image, @image.value.w, @image.value.h, 32)
-      #surface.lock
-
-      surface.blit(@image, point)
-
-      # LibSDL.blit_surface @image, source.pointer, surface.surface, destination.pointer
-
-      #surface.unlock
-      surface.flip
-
-      # LibSDL.blit_surface
-      # puts "done blitting surface"
-    end
-  end
 end
+
+require "image"
 
 
 module SDL
