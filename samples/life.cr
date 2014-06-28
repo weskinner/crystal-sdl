@@ -1,4 +1,3 @@
-
 class Life
   property :grid
   property :width
@@ -28,7 +27,7 @@ class Life
     total
   end
 
-  def fate(i, j) : Bool # True = Live, False = Dead
+  def fate(i, j) : Bool # True = Alive, False = Dead
     if @grid[i][j]
       if neighbors(i, j) < 2
         false # Underpopulation
