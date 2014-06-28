@@ -11,6 +11,15 @@ module Game
     end
   end
 
+  def self.exit_on_event!
+    Game.poll do |event|
+      if event.quit?
+        Game.quit
+        exit
+      end
+    end
+  end
+
   def self.go(width = 640, height = 480)
     # TODO: SDL.init is just a wrapper around LibSDL.init.. so just
     # replace it with the original statement!

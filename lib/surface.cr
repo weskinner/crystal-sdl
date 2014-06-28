@@ -41,7 +41,12 @@ class SDL::Surface
     fill(color, SDL::Rect.from(@surface))
   end
 
-  def fill(color, rect)
+  def fill(color, rect : SDL::Rect)
+    color_as_int = LibSDL.map_rgb(@surface.value.format, color.r, color.g, color.b)
+    LibSDL.fill_rect(@surface, rect.pointer, color_as_int)
+  end
+
+  def fill(color, rect : Pointer(LibSDL::Rect))
     color_as_int = LibSDL.map_rgb(@surface.value.format, color.r, color.g, color.b)
     LibSDL.fill_rect(@surface, rect, color_as_int)
   end

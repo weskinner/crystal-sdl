@@ -1,43 +1,30 @@
 require "../lib/sdl"
+require "../lib/sdl/game"
+require "point"
 
-class Point
-  property :x
-  property :y
+width  = 640
+height = 480
 
-  def initialize(@x, @y)
-  end
-end
-
-beachball_file = File.dirname(__FILE__) + "/beach_ball.png"
-
-beachball = SDL::Image.new(beachball_file)
-puts beachball.to_s
-
-if beachball.nil?
-  puts "Couldn't load beachball!"
-  puts SDL.error
-end
-
-puts "Starting loop"
 i = 0
 
-loop do
-  SDL.poll_events do |event|
-    if event.type == LibSDL::QUIT || event.type == LibSDL::KEYDOWN
-      SDL.quit
-      exit
-    end
-  end
+beachball_file = File.dirname(__FILE__) + "/beach_ball.png"
+beachball      = SDL::Image.new(beachball_file)
+
+if beachball.nil?
+  raise "Couldn't load beachball! Error: #{SDL.error}"
+end
+
+Game.go(width, height) do |screen|
+  Game.exit_on_event!
 
   if i > width
     i = 0
   end
 
   screen.fill(SDL::Color.from_hex("ffffff"))
-
   beachball.draw_onto(screen, Point.new(i, 30))
 
-  i += 10
+  i += 1
 
   screen.flip
 end

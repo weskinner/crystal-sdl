@@ -1,4 +1,3 @@
-
 require "../lib/sdl"
 require "../lib/sdl/game"
 require "life"
@@ -17,13 +16,8 @@ size   = 2
 life = Life.new(width / size, height / size, 0.5)
 
 Game.go(width, height) do |screen|
+  Game.exit_on_event!
+
   life.draw_onto(screen, size)
   life.next!
-
-  Game.poll do |event|
-    if event.quit?
-      Game.quit
-      exit
-    end
-  end
 end
