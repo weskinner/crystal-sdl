@@ -7,7 +7,7 @@ height = 480
 
 i = 0
 
-beachball_file = File.dirname(__FILE__) + "/beach_ball.png"
+beachball_file = "#{__DIR__}/beach_ball.png"
 beachball      = SDL::Image.new(beachball_file)
 
 if beachball.nil?
