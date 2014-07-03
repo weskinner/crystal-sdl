@@ -9,8 +9,8 @@ Better Crystal bindings for SDL.
 
 * test - Recommended minimum for working with SDL in Crystal.
 
-* beachball - PyGame inspired sprite demo for a beachball image bouncing against the edges of the window. (http://www.pygame.org/docs/tut/intro/intro.html)
+* beachball - PyGame inspired sprite demo for [a beachball image bouncing against the edges of the window.](http://www.pygame.org/docs/tut/intro/intro.html)
 
-* breakout - PyGame inspired
+* breakout - PyGame inspired demo, taken from: [Program Arcade Games With Python And Pygame](http://programarcadegames.com/python_examples/show_file.php?file=breakout_simple.py)
 
 * tetris - PyGame inspired tetris clone.
