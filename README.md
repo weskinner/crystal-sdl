@@ -11,4 +11,6 @@ Better Crystal bindings for SDL.
 
 * beachball - PyGame inspired sprite demo for a beachball image bouncing against the edges of the window.
 
-* tetris - PyGame inspired tetris clone.
+* breakout
+
+* Tetris - PyGame inspired tetris clone.
