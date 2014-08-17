@@ -1,3 +1,10 @@
+require "sdl/main"
+require "sdl/version"
+require "sdl/rect"
+require "sdl/image"
+require "sdl/surface"
+require "sdl/color"
+require "sdl/event"
 
 lib LibSDL("SDL")
   INIT_TIMER       = 0x00000001_u32
@@ -183,28 +190,20 @@ lib LibSDL("SDL")
   fun version      = SDL_Linked_Version() : Version*
 end
 
-lib SDLMain("SDLMain")
-end
+# lib SDLMain("SDLMain")
+# end
 
-ifdef darwin
-  lib LibCocoa("`echo \"-framework Cocoa\"`")
-  end
-end
+# ifdef darwin
+#   lib LibCocoa("`echo \"-framework Cocoa\"`")
+#   end
+# end
 
-undef main
+# undef main
 
-redefine_main("SDL_main") do |main|
-  {{main}}
-end
+# redefine_main("SDL_main") do |main|
+#   {{main}}
+# end
 
 lib LibSDL_image("SDL_image")
   fun load = IMG_Load(file : UInt8*) : LibSDL::Surface*
 end
-
-require "main"
-require "version"
-require "rect"
-require "image"
-require "surface"
-require "color"
-require "event"

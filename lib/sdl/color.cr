@@ -1,11 +1,10 @@
-
 module SDL
   class Color
     def self.from_hex(hex_string)
       red   = parse_hex(hex_string[0,2])
       green = parse_hex(hex_string[2,2])
       blue  = parse_hex(hex_string[4,2])
-      SDL::Color.struct(red, green, blue)
+      SDL::Color.from_struct(red, green, blue)
     end
 
     def self.hex_value(c)
@@ -36,7 +35,7 @@ module SDL
       hex_value(values[0]) + (16 * hex_value(values[1]))
     end
 
-    def self.struct(r, g, b)
+    def self.from_struct(r, g, b)
       c = LibSDL::Color.new
       c.r = r.to_u8
       c.g = g.to_u8
@@ -53,7 +52,7 @@ module SDL
     end
 
     def self.black
-      struct(0, 0, 0)
+      from_struct(0, 0, 0)
     end
   end
 end
