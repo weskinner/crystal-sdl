@@ -1,4 +1,3 @@
-
 module SDL
   class Event
     def initialize(@event)
