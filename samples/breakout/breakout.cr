@@ -1,6 +1,6 @@
-require "../lib/sdl"
-require "../lib/sdl/game"
-require "point"
+require "../../lib/sdl"
+require "../../lib/sdl/game"
+require "../point"
 
 SCREEN_WIDTH  = 640
 SCREEN_HEIGHT = 480
