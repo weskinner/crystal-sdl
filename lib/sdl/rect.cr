@@ -5,10 +5,6 @@ module SDL
     def initialize(@rect)
     end
 
-    def pointer
-      pointerof(@rect)
-    end
-
     def initialize(x, y, w, h)
       @rect = LibSDL::Rect.new
       @rect.x = x.to_i16
@@ -24,8 +20,9 @@ module SDL
         @rect.w, @rect.h)
     end
 
-    def self.from(image)
-      Rect.new(0.to_i16, 0.to_i16, image.value.w.to_u16, image.value.h.to_u16)
+    def pointer
+      # @rect
+      pointerof(@rect)
     end
   end
 end

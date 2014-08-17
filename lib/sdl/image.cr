@@ -22,9 +22,22 @@ module SDL
       "Surface: file_name=#{@file_name}, width=#{width}, height=#{height}"
     end
 
-    def draw_onto(surface : SDL::Surface, point : Point)
+    def rect
+      SDL::Rect.new(0, 0, @image.value.w, @image.value.h)
+    end
+
+    def draw_onto(surface : SDL::Surface, point : SDL::Point)
       image = Surface.new(@image, @image.value.w, @image.value.h, 32)
       surface.blit(@image, point)
+    end
+
+    def source
+      @image
+    end
+
+    def draw_onto(display : SDL::Display, point : SDL::Point)
+      image = Surface.new(@image, @image.value.w, @image.value.h, 32)
+      display.blit(self, point)
     end
   end
 end

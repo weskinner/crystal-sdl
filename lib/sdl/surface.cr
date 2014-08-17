@@ -8,6 +8,14 @@ module SDL
     def initialize(@surface, @width, @height, @bpp)
     end
 
+    def format
+      @surface.value.format
+    end
+
+    def source
+      @surface
+    end
+
     def each_row
       (0).upto(width - 1) do |i|
         yield i
@@ -70,6 +78,10 @@ module SDL
 
     def offset(x, y)
       x.to_i32 + (y.to_i32 * @width)
+    end
+
+    def rect
+      SDL::Rect.new(0, 0, @width, @height)
     end
   end
 end

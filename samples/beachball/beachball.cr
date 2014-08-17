@@ -1,12 +1,4 @@
-require "../lib/sdl"
-require "../lib/sdl/game"
-require "point"
-require "vector"
-
-width  = 640
-height = 480
-
-# TODO: Turn this into two vectors!
+require "../../lib/sdl"
 # Does crystal have a good set of primitive math libraries?
 # Can we contribute simple stuff like Point and Vector?
 
@@ -78,14 +70,20 @@ class Ball
 
 end
 
-pos    = Point.new(0, 0)
-speed  = Vector.new(10, 10)
+pos    = SDL::Point.new(0, 0)
+speed  = SDL::Vector.new(10, 10)
 image  = SDL::Image.new("#{__DIR__}/beach_ball.png")
+
+size   = {640, 480}
 
 ball   = Ball.new(pos, speed, image)
 
-Game.go(width, height) do |screen|
-  Game.exit_on_event!
+screen = SDL::Display.new(size)
+
+loop do
+  SDL.poll_events do |event|
+    exit if event.quit?
+  end
 
   if ball.x_collides?(screen)
     ball.x_speed = (-ball.x_speed)
@@ -97,7 +95,7 @@ Game.go(width, height) do |screen|
 
   ball.move!
 
-  screen.fill(SDL::Color.from_hex("ffffff"))
+  screen.fill(SDL::Color.black)
   ball.draw_onto(screen)
 
   screen.flip
