@@ -44,11 +44,11 @@ module SDL
     end
 
     def self.blue
-      struct(0, 0, 255)
+      from_struct(0, 0, 255)
     end
 
     def self.white
-      struct(255, 255, 255)
+      from_struct(255, 255, 255)
     end
 
     def self.black

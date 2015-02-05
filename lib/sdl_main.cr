@@ -1,4 +1,5 @@
-lib LibSDL("SDL")
+@[Link("SDL")]
+lib LibSDL
   INIT_TIMER       = 0x00000001_u32
   INIT_AUDIO       = 0x00000010_u32
   INIT_VIDEO       = 0x00000020_u32

@@ -1,5 +1,7 @@
 module SDL
   class Event
+    getter :type
+
     def initialize(@event)
     end
 
